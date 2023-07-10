@@ -9,7 +9,6 @@ import Enquiries from './pages/Enquiries'
 import Bloglist from './pages/Bloglist'
 import Blogcatlist from './pages/Blogcatlist'
 import Orders from './pages/Orders'
-import Customers from './pages/Customers'
 import Colorlist from './pages/Colotlist'
 import Categorylist from './pages/Categorylist'
 import Brandlist from './pages/Brandlist'
@@ -24,6 +23,7 @@ import Couponlist from './pages/Couponlist'
 import AddCoupon from './pages/AddCoupon'
 import ViewEnq from './pages/ViewEnq'
 import ViewOrder from './pages/ViewOrder'
+import Customers from 'pages/Customers'
 function App() {
     return (
         <Router>

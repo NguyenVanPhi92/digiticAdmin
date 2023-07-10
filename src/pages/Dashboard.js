@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs'
-// import { Column } from "@ant-design/plots";
+import { Column } from '@ant-design/plots'
 import { Table } from 'antd'
 const columns = [
     {
@@ -152,7 +152,9 @@ const Dashboard = () => {
             </div>
             <div className='mt-4'>
                 <h3 className='mb-5 title'>Income Statics</h3>
-                <div>{/* <Column {...config} /> */}</div>
+                <div>
+                    <Column {...config} />
+                </div>
             </div>
             <div className='mt-4'>
                 <h3 className='mb-5 title'>Recent Orders</h3>
