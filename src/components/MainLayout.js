@@ -23,8 +23,9 @@ const MainLayout = () => {
         token: { colorBgContainer }
     } = theme.useToken()
     const navigate = useNavigate()
+
     return (
-        <Layout /* onContextMenu={(e) => e.preventDefault()} */>
+        <Layout onContextMenu={(e) => e.preventDefault()}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className='logo'>
                     <h2 className='text-white fs-5 text-center py-3 mb-0'>
@@ -157,6 +158,7 @@ const MainLayout = () => {
                     ]}
                 />
             </Sider>
+
             <Layout className='site-layout'>
                 <Header
                     className='d-flex justify-content-between ps-1 pe-5'
@@ -218,6 +220,8 @@ const MainLayout = () => {
                         </div>
                     </div>
                 </Header>
+
+                {/* SideBar */}
                 <Content
                     style={{
                         margin: '24px 16px',

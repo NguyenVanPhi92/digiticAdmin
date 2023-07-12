@@ -1,7 +1,8 @@
-import React from 'react'
-import { BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs'
 import { Column } from '@ant-design/plots'
 import { Table } from 'antd'
+import React from 'react'
+import { BsArrowDownRight } from 'react-icons/bs'
+
 const columns = [
     {
         title: 'SNo',
@@ -109,6 +110,7 @@ const Dashboard = () => {
             }
         }
     }
+
     return (
         <div>
             <h3 className='mb-4 title'>Dashboard</h3>
@@ -150,12 +152,16 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Chart */}
             <div className='mt-4'>
                 <h3 className='mb-5 title'>Income Statics</h3>
                 <div>
                     <Column {...config} />
                 </div>
             </div>
+
+            {/* Recent Orders */}
             <div className='mt-4'>
                 <h3 className='mb-5 title'>Recent Orders</h3>
                 <div>
