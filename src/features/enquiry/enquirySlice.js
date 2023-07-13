@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import enquiryService from './enquiryService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getEnquiries = createAsyncThunk('enquiry/get-enquiries', async (thunkAPI) => {
     try {
         return await enquiryService.getEnquiries()
@@ -16,6 +17,7 @@ export const deleteAEnquiry = createAsyncThunk('enquiry/delete-enquiry', async (
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const getAEnquiry = createAsyncThunk('enquiry/get-enquiry', async (id, thunkAPI) => {
     try {
         return await enquiryService.getEnquiry(id)
@@ -31,6 +33,7 @@ export const updateAEnquiry = createAsyncThunk('enquiry/update-enquiry', async (
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const resetState = createAction('Reset_all')
 
 const initialState = {
@@ -40,6 +43,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const enquirySlice = createSlice({
     name: 'enquiries',
     initialState,

@@ -11,7 +11,7 @@
 -   Formik
 -   Yup
 
-*   video 6 - phuts 17
+*   video 6 - 43:05
 *   23 Page
 
 -   Login

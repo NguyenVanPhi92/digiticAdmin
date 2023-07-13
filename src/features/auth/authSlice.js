@@ -15,7 +15,7 @@ const initialState = {
     message: ''
 }
 
-// Tạo async action gọi Api với createAsyncThunk
+//Handle Api Asynchronous Logic and Data Fetching
 export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
     try {
         return await authService.login(userData)
@@ -40,7 +40,7 @@ export const getOrderByUser = createAsyncThunk('order/get-order', async (id, thu
     }
 })
 
-// Slice: làm việc với state cục bộ và xử lý api asynchronous
+// Create Slice: create case 'action and reducer'
 export const authSlice = createSlice({
     name: 'auth',
     initialState: initialState,

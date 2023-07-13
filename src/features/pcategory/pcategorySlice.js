@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import pCategoryService from './pcategoryService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getCategories = createAsyncThunk(
     'productCategory/get-categories',
     async (thunkAPI) => {
@@ -11,6 +12,7 @@ export const getCategories = createAsyncThunk(
         }
     }
 )
+
 export const createCategory = createAsyncThunk(
     'productCategory/create-category',
     async (categoryData, thunkAPI) => {
@@ -21,6 +23,7 @@ export const createCategory = createAsyncThunk(
         }
     }
 )
+
 export const updateAProductCategory = createAsyncThunk(
     'productCategory/update-category',
     async (category, thunkAPI) => {
@@ -42,6 +45,7 @@ export const deleteAProductCategory = createAsyncThunk(
         }
     }
 )
+
 export const getAProductCategory = createAsyncThunk(
     'productCategory/get-product-category',
     async (id, thunkAPI) => {
@@ -52,6 +56,7 @@ export const getAProductCategory = createAsyncThunk(
         }
     }
 )
+
 export const resetState = createAction('RevertAll')
 
 const initialState = {
@@ -61,6 +66,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const pCategorySlice = createSlice({
     name: 'pCategories',
     initialState,

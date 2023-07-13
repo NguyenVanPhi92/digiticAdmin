@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import colorService from './colorService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getColors = createAsyncThunk('color/get-colors', async (thunkAPI) => {
     try {
         return await colorService.getColors()
@@ -8,6 +9,7 @@ export const getColors = createAsyncThunk('color/get-colors', async (thunkAPI) =
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const createColor = createAsyncThunk('color/create-color', async (colorData, thunkAPI) => {
     try {
         return await colorService.createColor(colorData)
@@ -23,6 +25,7 @@ export const getAColor = createAsyncThunk('color/get-color', async (id, thunkAPI
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const updateAColor = createAsyncThunk('color/update-color', async (color, thunkAPI) => {
     try {
         return await colorService.updateColor(color)
@@ -48,6 +51,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const colorSlice = createSlice({
     name: 'colors',
     initialState,

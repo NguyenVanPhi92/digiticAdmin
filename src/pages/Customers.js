@@ -26,9 +26,11 @@ const Customers = () => {
     // use useSelector to retrieve(truy xuat) customers in Redux store
     const customerstate = useSelector((state) => state.customer.customers)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(getUsers())
     }, [])
+
     const data1 = []
     for (let i = 0; i < customerstate.length; i++) {
         if (customerstate[i].role !== 'admin') {

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import uploadService from './uploadService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const uploadImg = createAsyncThunk('upload/images', async (data, thunkAPI) => {
     try {
         const formData = new FormData()
@@ -12,6 +13,7 @@ export const uploadImg = createAsyncThunk('upload/images', async (data, thunkAPI
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const delImg = createAsyncThunk('delete/images', async (id, thunkAPI) => {
     try {
         return await uploadService.deleteImg(id)
@@ -19,6 +21,7 @@ export const delImg = createAsyncThunk('delete/images', async (id, thunkAPI) => 
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 const initialState = {
     images: [],
     isError: false,
@@ -26,6 +29,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const uploadSlice = createSlice({
     name: 'imaegs',
     initialState,
@@ -64,4 +69,5 @@ export const uploadSlice = createSlice({
             })
     }
 })
+
 export default uploadSlice.reducer

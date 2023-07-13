@@ -11,6 +11,7 @@ import enquiryReducer from '../features/enquiry/enquirySlice'
 import uploadReducer from '../features/upload/uploadSlice'
 import couponReducer from '../features/coupon/couponSlice'
 
+// export cac reducer dc luu vao store redux
 export const store = configureStore({
     reducer: {
         auth: authReducer,

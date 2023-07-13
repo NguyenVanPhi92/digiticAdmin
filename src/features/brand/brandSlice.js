@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import brandService from './brandService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getBrands = createAsyncThunk('brand/get-brands', async (thunkAPI) => {
     try {
         return await brandService.getBrands()
@@ -8,6 +9,7 @@ export const getBrands = createAsyncThunk('brand/get-brands', async (thunkAPI) =
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const getABrand = createAsyncThunk('brand/get-brand', async (id, thunkAPI) => {
     try {
         return await brandService.getBrand(id)
@@ -15,6 +17,7 @@ export const getABrand = createAsyncThunk('brand/get-brand', async (id, thunkAPI
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const createBrand = createAsyncThunk('brand/create-brand', async (brandData, thunkAPI) => {
     try {
         return await brandService.createBrand(brandData)
@@ -22,6 +25,7 @@ export const createBrand = createAsyncThunk('brand/create-brand', async (brandDa
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const updateABrand = createAsyncThunk('brand/update-brand', async (brand, thunkAPI) => {
     try {
         return await brandService.updateBrand(brand)
@@ -47,6 +51,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const brandSlice = createSlice({
     name: 'brands',
     initialState,

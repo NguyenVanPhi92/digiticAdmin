@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import productService from './productService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getProducts = createAsyncThunk('product/get-products', async (thunkAPI) => {
     try {
         return await productService.getProducts()
@@ -30,6 +31,7 @@ const initialState = {
     message: ''
 }
 
+// Create Slice: create case 'action and reducer'
 export const productSlice = createSlice({
     name: 'products',
     initialState,

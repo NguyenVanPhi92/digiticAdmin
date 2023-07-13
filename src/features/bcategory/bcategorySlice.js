@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import bCategoryService from './bcategoryService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getCategories = createAsyncThunk('blogCategory/get-categories', async (thunkAPI) => {
     try {
         return await bCategoryService.getBlogCategories()
@@ -8,6 +9,7 @@ export const getCategories = createAsyncThunk('blogCategory/get-categories', asy
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const createNewblogCat = createAsyncThunk(
     'blogCategory/create-category',
     async (catData, thunkAPI) => {
@@ -26,6 +28,7 @@ export const getABlogCat = createAsyncThunk('blogCategory/get-category', async (
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const updateABlogCat = createAsyncThunk(
     'blogCategory/update-category',
     async (blogCat, thunkAPI) => {
@@ -47,7 +50,9 @@ export const deleteABlogCat = createAsyncThunk(
         }
     }
 )
+
 export const resetState = createAction('Reset_all')
+
 const initialState = {
     bCategories: [],
     isError: false,
@@ -55,6 +60,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const pCategorySlice = createSlice({
     name: 'bCategories',
     initialState,

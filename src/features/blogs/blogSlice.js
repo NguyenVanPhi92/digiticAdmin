@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import blogService from './blogService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getBlogs = createAsyncThunk('blog/get-blogs', async (thunkAPI) => {
     try {
         return await blogService.getBlogs()
@@ -48,6 +49,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const blogSlice = createSlice({
     name: 'blogs',
     initialState,

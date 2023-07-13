@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import couponService from './couponService'
 
+//Handle Api Asynchronous Logic and Data Fetching
 export const getAllCoupon = createAsyncThunk('coupon/get-coupons', async (thunkAPI) => {
     try {
         return await couponService.getCoupons()
@@ -8,6 +9,7 @@ export const getAllCoupon = createAsyncThunk('coupon/get-coupons', async (thunkA
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const createCoupon = createAsyncThunk(
     'coupon/create-coupon',
     async (couponData, thunkAPI) => {
@@ -18,6 +20,7 @@ export const createCoupon = createAsyncThunk(
         }
     }
 )
+
 export const deleteACoupon = createAsyncThunk('coupon/delete-coupon', async (id, thunkAPI) => {
     try {
         return await couponService.deleteCoupon(id)
@@ -25,6 +28,7 @@ export const deleteACoupon = createAsyncThunk('coupon/delete-coupon', async (id,
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const getACoupon = createAsyncThunk('coupon/get-coupon', async (id, thunkAPI) => {
     try {
         return await couponService.getCoupon(id)
@@ -32,6 +36,7 @@ export const getACoupon = createAsyncThunk('coupon/get-coupon', async (id, thunk
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const updateACoupon = createAsyncThunk('color/update-coupon', async (coupon, thunkAPI) => {
     try {
         return await couponService.updateCoupon(coupon)
@@ -39,6 +44,7 @@ export const updateACoupon = createAsyncThunk('color/update-coupon', async (coup
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 export const resetState = createAction('Reset_all')
 
 const initialState = {
@@ -48,6 +54,8 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
+// Create Slice: create case 'action and reducer'
 export const couponSlice = createSlice({
     name: 'coupons',
     initialState,
