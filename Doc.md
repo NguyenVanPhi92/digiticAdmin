@@ -1,9 +1,18 @@
-ReactJs + react-qill + react-icon + Antd + Redux + Redux Tollkit + createAsyncThunk + Axios + Formik + Yup
-Node 16.16.0 npm 9.8.0
+-   Node 16.16.0 npm 9.8.0
+    Tech
+-   ReactJs
+-   react-qill
+-   react-icon
+-   Antd
+-   Redux
+-   Redux Tollkit
+-   createAsyncThunk
+-   Axios
+-   Formik
+-   Yup
 
-1:52:54 video 4
-
-23 Page
+*   video 6 - phuts 17
+*   23 Page
 
 -   Login
 -   Forgot password

@@ -8,6 +8,7 @@ export const getUsers = createAsyncThunk('customer/get-customers', async (thunkA
         return thunkAPI.rejectWithValue(error)
     }
 })
+
 const initialState = {
     customers: [],
     isError: false,
@@ -15,6 +16,7 @@ const initialState = {
     isSuccess: false,
     message: ''
 }
+
 export const customerSlice = createSlice({
     name: 'users',
     initialState,
@@ -38,4 +40,5 @@ export const customerSlice = createSlice({
             })
     }
 })
+
 export default customerSlice.reducer
