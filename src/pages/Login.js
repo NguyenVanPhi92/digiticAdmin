@@ -28,14 +28,13 @@ const Login = () => {
 
     const { user, isError, isSuccess, isLoading, message } = authState.auth
 
-    // useEffect(() => {
-    //     // isSuccess
-    //     if (user) {
-    //         navigate('admin')
-    //     } else {
-    //         navigate('')
-    //     }
-    // }, [user, isError, isSuccess, isLoading])
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('admin')
+        } else {
+            navigate('')
+        }
+    }, [user, isError, isSuccess, isLoading])
 
     return (
         <div className='py-5' style={{ background: '#ffd333', minHeight: '100vh' }}>
