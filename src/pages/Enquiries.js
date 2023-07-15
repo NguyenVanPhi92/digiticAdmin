@@ -10,6 +10,7 @@ import {
     resetState,
     updateAEnquiry
 } from '../features/enquiry/enquirySlice'
+import Loading from 'components/Loading'
 
 const columns = [
     {
@@ -41,6 +42,7 @@ const columns = [
 
 const Enquiries = () => {
     const enqState = useSelector((state) => state.enquiry.enquiries)
+    const isLoading = useSelector((state) => state.enquiry.isLoading)
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false)
     const [enqId, setenqId] = useState('')
@@ -117,9 +119,7 @@ const Enquiries = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Enquiries</h3>
-            <div>
-                <Table columns={columns} dataSource={data1} />
-            </div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
             <CustomModal
                 hideModal={hideModal}
                 open={open}

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CustomModal from '../components/CustomModal'
 import { deleteABrand, getBrands, resetState } from '../features/brand/brandSlice'
+import Loading from 'components/Loading'
 
 const columns = [
     {
@@ -27,6 +28,7 @@ const Brandlist = () => {
     const [open, setOpen] = useState(false)
     const [brandId, setbrandId] = useState('')
     const brandState = useSelector((state) => state.brand.brands)
+    const isLoading = useSelector((state) => state.brand.isLoading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -54,6 +56,7 @@ const Brandlist = () => {
                     <Link to={`/admin/brand/${brandState[i]._id}`} className=' fs-3 text-danger'>
                         <BiEdit />
                     </Link>
+
                     <button
                         className='ms-3 fs-3 text-danger bg-transparent border-0'
                         onClick={() => showModal(brandState[i]._id)}
@@ -77,9 +80,8 @@ const Brandlist = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Brands</h3>
-            <div>
-                <Table columns={columns} dataSource={data1} />
-            </div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
+
             <CustomModal
                 hideModal={hideModal}
                 open={open}

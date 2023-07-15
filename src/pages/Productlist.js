@@ -5,6 +5,7 @@ import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../features/product/productSlice'
+import Loading from 'components/Loading'
 const columns = [
     {
         title: 'SNo',
@@ -42,6 +43,7 @@ const columns = [
 
 const Productlist = () => {
     const productState = useSelector((state) => state.product.products)
+    const isLoading = useSelector((state) => state.product.isLoading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -69,13 +71,10 @@ const Productlist = () => {
             )
         })
     }
-    console.log(data1)
     return (
         <div>
             <h3 className='mb-4 title'>Products</h3>
-            <div>
-                <Table columns={columns} dataSource={data1} />
-            </div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
         </div>
     )
 }

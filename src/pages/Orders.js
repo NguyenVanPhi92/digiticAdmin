@@ -5,6 +5,7 @@ import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getOrders } from '../features/auth/authSlice'
+import Loading from 'components/Loading'
 const columns = [
     {
         title: 'SNo',
@@ -35,6 +36,7 @@ const columns = [
 
 const Orders = () => {
     const orderState = useSelector((state) => state.auth.orders)
+    const isLoading = useSelector((state) => state.auth.isLoading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -64,7 +66,7 @@ const Orders = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Orders</h3>
-            <div>{<Table columns={columns} dataSource={data1} />}</div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
         </div>
     )
 }

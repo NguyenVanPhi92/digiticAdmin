@@ -7,24 +7,13 @@ import 'react-quill/dist/quill.snow.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import * as yup from 'yup'
+import { AddProductSchem } from 'schema'
 import CustomInput from '../components/CustomInput'
 import { getBrands } from '../features/brand/brandSlice'
 import { getColors } from '../features/color/colorSlice'
 import { getCategories } from '../features/pcategory/pcategorySlice'
 import { createProducts, resetState } from '../features/product/productSlice'
 import { delImg, uploadImg } from '../features/upload/uploadSlice'
-
-let schema = yup.object().shape({
-    title: yup.string().required('Title is Required'),
-    description: yup.string().required('Description is Required'),
-    price: yup.number().required('Price is Required'),
-    brand: yup.string().required('Brand is Required'),
-    category: yup.string().required('Category is Required'),
-    tags: yup.string().required('Tag is Required'),
-    color: yup.array().min(1, 'Pick at least one color').required('Color is Required'),
-    quantity: yup.number().required('Quantity is Required')
-})
 
 const Addproduct = () => {
     const dispatch = useDispatch()
@@ -85,7 +74,7 @@ const Addproduct = () => {
             quantity: '',
             images: ''
         },
-        validationSchema: schema,
+        validationSchema: AddProductSchem,
         onSubmit: (values) => {
             dispatch(createProducts(values))
             formik.resetForm()

@@ -21,13 +21,11 @@ const updateBlogCategory = async (blogCat) => {
 }
 const getBlogCategory = async (id) => {
     const response = await axios.get(`${base_url}blogcategory/${id}`, config)
-
     return response.data
 }
 
 const deleteBlogCategory = async (id) => {
     const response = await axios.delete(`${base_url}blogcategory/${id}`, config)
-
     return response.data
 }
 const bCategoryService = {
@@ -35,7 +33,6 @@ const bCategoryService = {
     createBlogCategory,
     deleteBlogCategory,
     getBlogCategory,
-    deleteBlogCategory,
     updateBlogCategory
 }
 

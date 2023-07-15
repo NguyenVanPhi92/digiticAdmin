@@ -5,9 +5,8 @@ import { base_url } from '../../utils/baseUrl'
 // sau khi login sẽ lưu thông tin user vào localStorage và trả về data user
 const login = async (user) => {
     const response = await axios.post(`${base_url}user/admin-login`, user)
-    if (response.data) {
-        localStorage.setItem('user', JSON.stringify(response.data))
-    }
+    if (response.data) localStorage.setItem('user', JSON.stringify(response.data))
+
     return response.data
 }
 

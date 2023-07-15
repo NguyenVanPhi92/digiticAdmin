@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Table } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsers } from '../features/cutomers/customerSlice'
+import Loading from 'components/Loading'
 const columns = [
     {
         title: 'SNo',
@@ -25,6 +26,7 @@ const columns = [
 const Customers = () => {
     // use useSelector to retrieve(truy xuat) customers in Redux store
     const customerstate = useSelector((state) => state.customer.customers)
+    const isLoading = useSelector((state) => state.customer.isLoading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -46,9 +48,7 @@ const Customers = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Customers</h3>
-            <div>
-                <Table columns={columns} dataSource={data1} />
-            </div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
         </div>
     )
 }

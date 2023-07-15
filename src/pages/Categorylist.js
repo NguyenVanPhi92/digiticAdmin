@@ -10,6 +10,7 @@ import {
     getCategories,
     resetState
 } from '../features/pcategory/pcategorySlice'
+import Loading from 'components/Loading'
 
 const columns = [
     {
@@ -32,6 +33,7 @@ const Categorylist = () => {
     const [open, setOpen] = useState(false)
     const [pCatId, setpCatId] = useState('')
     const pCatStat = useSelector((state) => state.pCategory.pCategories)
+    const isLoading = useSelector((state) => state.pCategory.isLoading)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -80,9 +82,8 @@ const Categorylist = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Product Categories</h3>
-            <div>
-                <Table columns={columns} dataSource={data1} />
-            </div>
+            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
+
             <CustomModal
                 hideModal={hideModal}
                 open={open}

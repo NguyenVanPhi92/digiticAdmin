@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
+import { createAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import enquiryService from './enquiryService'
 
 //Handle Api Asynchronous Logic and Data Fetching

@@ -3,6 +3,7 @@
 -   ReactJs
 -   react-qill
 -   react-icon
+-   react-widgets: cac component dc react build san
 -   Antd
 -   Redux
 -   Redux Tollkit
@@ -11,7 +12,7 @@
 -   Formik
 -   Yup
 
-*   video 6 - 1:00:07
+*   video 7 Add product - 45:26
 *   23 Page
 
 -   Login
