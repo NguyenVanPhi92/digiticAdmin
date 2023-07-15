@@ -12,7 +12,7 @@
 -   Formik
 -   Yup
 
-*   video 7 Add product - 45:26
+*   video 8 Brand Sever - 24:30
 *   23 Page
 
 -   Login

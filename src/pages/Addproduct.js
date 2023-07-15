@@ -27,6 +27,7 @@ const Addproduct = () => {
     const newProduct = useSelector((state) => state.product)
     const { isSuccess, isError, isLoading, createdProduct } = newProduct
 
+    // get list brands, categories, colors in store redux
     useEffect(() => {
         dispatch(getBrands())
         dispatch(getCategories())
@@ -42,6 +43,11 @@ const Addproduct = () => {
         }
     }, [isSuccess, isError, isLoading])
 
+    useEffect(() => {
+        formik.values.color = color ? color : ' '
+        formik.values.images = img
+    }, [color, img])
+
     const coloropt = []
     colorState.forEach((i) => {
         coloropt.push({
@@ -56,11 +62,6 @@ const Addproduct = () => {
             url: i.url
         })
     })
-
-    useEffect(() => {
-        formik.values.color = color ? color : ' '
-        formik.values.images = img
-    }, [color, img])
 
     const formik = useFormik({
         initialValues: {
@@ -86,10 +87,7 @@ const Addproduct = () => {
     })
 
     //handle
-    const handleColors = (e) => {
-        setColor(e)
-        console.log(color)
-    }
+    const handleColors = (e) => setColor(e)
     return (
         <div>
             <h3 className='mb-4 title'>Add Product</h3>
@@ -186,6 +184,7 @@ const Addproduct = () => {
                         onChange={(i) => handleColors(i)}
                         options={coloropt}
                     />
+
                     <div className='error'>{formik.touched.color && formik.errors.color}</div>
                     <CustomInput
                         type='number'
@@ -196,6 +195,7 @@ const Addproduct = () => {
                         val={formik.values.quantity}
                     />
                     <div className='error'>{formik.touched.quantity && formik.errors.quantity}</div>
+
                     <div className='bg-white border-1 p-5 text-center'>
                         <Dropzone onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}>
                             {({ getRootProps, getInputProps }) => (
@@ -210,6 +210,7 @@ const Addproduct = () => {
                             )}
                         </Dropzone>
                     </div>
+
                     <div className='showimages d-flex flex-wrap gap-3'>
                         {imgState?.map((i, j) => {
                             return (
