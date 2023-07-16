@@ -1,10 +1,8 @@
 import axios from 'axios'
-import { base_url } from '../../utils/baseUrl'
 import { config } from '../../utils/axiosconfig'
+import { base_url } from '../../utils/baseUrl'
 
-const getProductCategories = async () => {
-    return (await axios.get(`${base_url}category/`)).data
-}
+const getProductCategories = async () => (await axios.get(`${base_url}category/`)).data
 
 const createCategory = async (category) => {
     return (await axios.post(`${base_url}category/`, category, config)).data
