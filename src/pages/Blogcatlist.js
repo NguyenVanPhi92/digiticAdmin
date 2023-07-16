@@ -45,7 +45,6 @@ const Blogcatlist = () => {
         setOpen(false)
     }
 
-    console.log(bCatState)
     const data1 = []
     for (let i = 0; i < bCatState.length; i++) {
         data1.push({

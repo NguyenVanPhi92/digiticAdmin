@@ -1,19 +1,17 @@
+import { useFormik } from 'formik'
 import { React, useEffect } from 'react'
-import CustomInput from '../components/CustomInput'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import * as yup from 'yup'
-import { useFormik } from 'formik'
+import { AddBlogCateSchema } from 'schema'
+import CustomInput from '../components/CustomInput'
 import {
     createNewblogCat,
     getABlogCat,
     resetState,
     updateABlogCat
 } from '../features/bcategory/bcategorySlice'
-let schema = yup.object().shape({
-    title: yup.string().required('Category Name is Required')
-})
+
 const Addblogcat = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -49,7 +47,8 @@ const Addblogcat = () => {
         initialValues: {
             title: blogCatName || ''
         },
-        validationSchema: schema,
+        validationSchema: AddBlogCateSchema,
+        // submit form
         onSubmit: (values) => {
             const data = { id: getBlogCatId, blogCatData: values }
             if (getBlogCatId !== undefined) {

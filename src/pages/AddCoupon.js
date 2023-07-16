@@ -3,15 +3,9 @@ import { React, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import * as yup from 'yup'
+import { AddCouponSchema } from 'schema'
 import CustomInput from '../components/CustomInput'
 import { createCoupon, getACoupon, resetState, updateACoupon } from '../features/coupon/couponSlice'
-
-let schema = yup.object().shape({
-    name: yup.string().required('Coupon Name is Required'),
-    expiry: yup.date().required('Expiry Date is Required'),
-    discount: yup.number().required('Discount Percentage is Required')
-})
 
 const AddCoupon = () => {
     const dispatch = useDispatch()
@@ -65,7 +59,8 @@ const AddCoupon = () => {
             expiry: changeDateFormet(couponExpiry) || '',
             discount: couponDiscount || ''
         },
-        validationSchema: schema,
+        validationSchema: AddCouponSchema,
+        // submit form
         onSubmit: (values) => {
             if (getCouponId !== undefined) {
                 const data = { id: getCouponId, couponData: values }

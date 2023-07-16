@@ -43,6 +43,14 @@ const Addproduct = () => {
         }
     }, [isSuccess, isError, isLoading])
 
+    const img = []
+    imgState.forEach((i) => {
+        img.push({
+            public_id: i.public_id,
+            url: i.url
+        })
+    })
+
     useEffect(() => {
         formik.values.color = color ? color : ' '
         formik.values.images = img
@@ -53,13 +61,6 @@ const Addproduct = () => {
         coloropt.push({
             label: i.title,
             value: i._id
-        })
-    })
-    const img = []
-    imgState.forEach((i) => {
-        img.push({
-            public_id: i.public_id,
-            url: i.url
         })
     })
 
@@ -76,6 +77,7 @@ const Addproduct = () => {
             images: ''
         },
         validationSchema: AddProductSchem,
+        // submit form
         onSubmit: (values) => {
             dispatch(createProducts(values))
             formik.resetForm()

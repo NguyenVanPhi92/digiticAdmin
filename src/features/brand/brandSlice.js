@@ -134,7 +134,7 @@ export const brandSlice = createSlice({
                 state.isSuccess = false
                 state.message = action.error
             })
-            .addCase(resetState, () => initialState)
+            .addCase(resetState, () => initialState) // reset lại state trong store redux
     }
 })
 

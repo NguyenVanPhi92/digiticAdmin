@@ -135,7 +135,7 @@ export const blogSlice = createSlice({
                 state.isSuccess = false
                 state.message = action.error
             })
-            .addCase(resetState, () => initialState)
+            .addCase(resetState, () => initialState) // reset lai state in store redux
     }
 })
 export default blogSlice.reducer

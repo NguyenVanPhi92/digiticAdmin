@@ -1,4 +1,5 @@
 import { Table } from 'antd'
+import Loading from 'components/Loading'
 import React, { useEffect, useState } from 'react'
 import { AiFillDelete } from 'react-icons/ai'
 import { BiEdit } from 'react-icons/bi'
@@ -10,7 +11,6 @@ import {
     getCategories,
     resetState
 } from '../features/pcategory/pcategorySlice'
-import Loading from 'components/Loading'
 
 const columns = [
     {

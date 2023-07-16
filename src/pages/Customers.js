@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
 import { Table } from 'antd'
+import Loading from 'components/Loading'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsers } from '../features/cutomers/customerSlice'
-import Loading from 'components/Loading'
 const columns = [
     {
         title: 'SNo',

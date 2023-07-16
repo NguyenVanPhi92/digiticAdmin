@@ -1,31 +1,15 @@
-import React, { useEffect } from 'react'
-import CustomInput from '../components/CustomInput'
-import { Link, useNavigate } from 'react-router-dom'
-import * as yup from 'yup'
-import { useFormik } from 'formik'
-import { useDispatch, useSelector } from 'react-redux'
 import { login } from 'features/auth/authSlice'
+import { useFormik } from 'formik'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { LoginSchema } from 'schema'
+import CustomInput from '../components/CustomInput'
 
-let schema = yup.object().shape({
-    email: yup.string().email('Email should be valid').required('Email is Required'),
-    password: yup.string().required('Password is Required')
-})
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        validationSchema: schema,
-        onSubmit: (values) => {
-            dispatch(login(values))
-        }
-    })
     const authState = useSelector((state) => state)
-
     const { user, isError, isSuccess, isLoading, message } = authState.auth
 
     useEffect(() => {
@@ -35,6 +19,18 @@ const Login = () => {
             navigate('')
         }
     }, [user, isError, isSuccess, isLoading])
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validationSchema: LoginSchema,
+        // submit form
+        onSubmit: (values) => {
+            dispatch(login(values))
+        }
+    })
 
     return (
         <div className='py-5' style={{ background: '#ffd333', minHeight: '100vh' }}>

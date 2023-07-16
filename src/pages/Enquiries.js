@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import { Table } from 'antd'
+import Loading from 'components/Loading'
+import React, { useEffect, useState } from 'react'
 import { AiFillDelete, AiOutlineEye } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,7 +11,6 @@ import {
     resetState,
     updateAEnquiry
 } from '../features/enquiry/enquirySlice'
-import Loading from 'components/Loading'
 
 const columns = [
     {

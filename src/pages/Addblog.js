@@ -6,17 +6,11 @@ import 'react-quill/dist/quill.snow.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import * as yup from 'yup'
+import { AdddBlogSchema } from 'schema'
 import CustomInput from '../components/CustomInput'
 import { getCategories } from '../features/bcategory/bcategorySlice'
 import { createBlogs, getABlog, resetState, updateABlog } from '../features/blogs/blogSlice'
 import { delImg, uploadImg } from '../features/upload/uploadSlice'
-
-let schema = yup.object().shape({
-    title: yup.string().required('Title is Required'),
-    description: yup.string().required('Description is Required'),
-    category: yup.string().required('Category is Required')
-})
 
 const Addblog = () => {
     const dispatch = useDispatch()
@@ -73,7 +67,7 @@ const Addblog = () => {
             url: i.url
         })
     })
-    console.log(img)
+
     useEffect(() => {
         formik.values.images = img
     }, [blogImages])
@@ -87,7 +81,8 @@ const Addblog = () => {
             category: blogCategory || '',
             images: ''
         },
-        validationSchema: schema,
+        validationSchema: AdddBlogSchema,
+        // submit form
         onSubmit: (values) => {
             if (getBlogId !== undefined) {
                 const data = { id: getBlogId, blogData: values }
@@ -158,7 +153,7 @@ const Addblog = () => {
                             {({ getRootProps, getInputProps }) => (
                                 <section>
                                     <div {...getRootProps()}>
-                                        <input {...getInputProps()} /> 
+                                        <input {...getInputProps()} />
                                         <p>
                                             Drag 'n' drop some files here, or click to select files
                                         </p>

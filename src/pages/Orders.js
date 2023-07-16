@@ -1,11 +1,11 @@
 import { Table } from 'antd'
+import Loading from 'components/Loading'
 import React, { useEffect } from 'react'
 import { AiFillDelete } from 'react-icons/ai'
 import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getOrders } from '../features/auth/authSlice'
-import Loading from 'components/Loading'
 const columns = [
     {
         title: 'SNo',

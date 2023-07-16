@@ -1,14 +1,11 @@
 import axios from 'axios'
-import { base_url } from '../../utils/baseUrl'
 import { config } from '../../utils/axiosconfig'
+import { base_url } from '../../utils/baseUrl'
 
-const getBlogCategories = async () => {
-    const response = await axios.get(`${base_url}blogcategory/`)
-    return response.data
-}
+const getBlogCategories = async () => (await axios.get(`${base_url}blogcategory/`)).data
+
 const createBlogCategory = async (bcat) => {
-    const response = await axios.post(`${base_url}blogcategory/`, bcat, config)
-    return response.data
+    return (await axios.post(`${base_url}blogcategory/`, bcat, config)).data
 }
 const updateBlogCategory = async (blogCat) => {
     const response = await axios.put(
@@ -20,14 +17,12 @@ const updateBlogCategory = async (blogCat) => {
     return response.data
 }
 const getBlogCategory = async (id) => {
-    const response = await axios.get(`${base_url}blogcategory/${id}`, config)
-    return response.data
+    return (await axios.get(`${base_url}blogcategory/${id}`, config)).data
+}
+const deleteBlogCategory = async (id) => {
+    return (await axios.delete(`${base_url}blogcategory/${id}`, config)).data
 }
 
-const deleteBlogCategory = async (id) => {
-    const response = await axios.delete(`${base_url}blogcategory/${id}`, config)
-    return response.data
-}
 const bCategoryService = {
     getBlogCategories,
     createBlogCategory,
