@@ -39,6 +39,7 @@ export const getACoupon = createAsyncThunk('coupon/get-coupon', async (id, thunk
 
 export const updateACoupon = createAsyncThunk('color/update-coupon', async (coupon, thunkAPI) => {
     try {
+        console.log('id ', coupon)
         return await couponService.updateCoupon(coupon)
     } catch (error) {
         return thunkAPI.rejectWithValue(error)
@@ -52,6 +53,7 @@ const initialState = {
     isError: false,
     isLoading: false,
     isSuccess: false,
+    updateACoupon: false,
     message: ''
 }
 
@@ -114,9 +116,9 @@ export const couponSlice = createSlice({
                 state.isLoading = false
                 state.isError = false
                 state.isSuccess = true
-                state.couponName = action.payload[0].name
-                state.couponDiscount = action.payload[0].discount
-                state.couponExpiry = action.payload[0].expiry
+                state.couponName = action.payload.name
+                state.couponDiscount = action.payload.discount
+                state.couponExpiry = action.payload.expiry
             })
             .addCase(getACoupon.rejected, (state, action) => {
                 state.isLoading = false
@@ -126,19 +128,22 @@ export const couponSlice = createSlice({
             })
             .addCase(updateACoupon.pending, (state) => {
                 state.isLoading = true
+                state.updateACoupon = false
             })
             .addCase(updateACoupon.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isError = false
                 state.isSuccess = true
-                state.couponName = action.payload[0].name
-                state.couponDiscount = action.payload[0].discount
-                state.couponExpiry = action.payload[0].expiry
+                state.updateACoupon = true
+                state.couponName = action.payload.name
+                state.couponDiscount = action.payload.discount
+                state.couponExpiry = action.payload.expiry
             })
             .addCase(updateACoupon.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.isSuccess = false
+                state.updateACoupon = false
                 state.message = action.error
             })
             .addCase(resetState, () => initialState)

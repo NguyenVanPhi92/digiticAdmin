@@ -22,7 +22,7 @@ const AddCoupon = () => {
         couponName,
         couponDiscount,
         couponExpiry,
-        updatedCoupon
+        updateACoupon
     } = newCoupon
 
     const changeDateFormet = (date) => {
@@ -43,7 +43,7 @@ const AddCoupon = () => {
         if (isSuccess && createdCoupon) {
             toast.success('Coupon Added Successfullly!')
         }
-        if (isSuccess && updatedCoupon) {
+        if (isSuccess && updateACoupon) {
             toast.success('Coupon Updated Successfullly!')
             navigate('/admin/coupon-list')
         }
