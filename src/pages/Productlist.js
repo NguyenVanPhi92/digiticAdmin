@@ -6,6 +6,8 @@ import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../features/product/productSlice'
+import TableEl from 'components/Table'
+
 const columns = [
     {
         title: 'SNo',
@@ -74,7 +76,7 @@ const Productlist = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Products</h3>
-            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
+            {isLoading ? <Loading /> : <TableEl columns={columns} dataSource={data1} />}
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import { Table } from 'antd'
 import Loading from 'components/Loading'
+import TableEl from 'components/Table'
 import React, { useEffect, useState } from 'react'
 import { AiFillDelete } from 'react-icons/ai'
 import { BiEdit } from 'react-icons/bi'
@@ -77,7 +77,7 @@ const Colorlist = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Colors</h3>
-            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
+            <div>{isLoading ? <Loading /> : <TableEl columns={columns} dataSource={data1} />}</div>
 
             <CustomModal
                 hideModal={hideModal}

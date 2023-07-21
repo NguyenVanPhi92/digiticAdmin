@@ -1,11 +1,11 @@
+import TableEl from 'components/Table'
 import React, { useEffect, useState } from 'react'
-import { Table } from 'antd'
-import { BiEdit } from 'react-icons/bi'
 import { AiFillDelete } from 'react-icons/ai'
+import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deleteABlogCat, getCategories, resetState } from '../features/bcategory/bcategorySlice'
 import CustomModal from '../components/CustomModal'
+import { deleteABlogCat, getCategories, resetState } from '../features/bcategory/bcategorySlice'
 
 const columns = [
     {
@@ -79,7 +79,7 @@ const Blogcatlist = () => {
         <div>
             <h3 className='mb-4 title'>Blog Categories</h3>
             <div>
-                <Table columns={columns} dataSource={data1} />
+                <TableEl columns={columns} dataSource={data1} />
             </div>
             <CustomModal
                 hideModal={hideModal}

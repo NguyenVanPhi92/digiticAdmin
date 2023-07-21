@@ -1,4 +1,4 @@
-import { Table } from 'antd'
+import TableEl from 'components/Table'
 import React, { useEffect } from 'react'
 import { AiFillDelete } from 'react-icons/ai'
 import { BiEdit } from 'react-icons/bi'
@@ -77,7 +77,7 @@ const ViewOrder = () => {
         <div>
             <h3 className='mb-4 title'>View Order</h3>
             <div>
-                <Table columns={columns} dataSource={data1} />
+                <TableEl columns={columns} dataSource={data1} />
             </div>
         </div>
     )

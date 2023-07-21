@@ -1,11 +1,11 @@
+import TableEl from 'components/Table'
 import React, { useEffect, useState } from 'react'
-import { Table } from 'antd'
-import { BiEdit } from 'react-icons/bi'
 import { AiFillDelete } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { BiEdit } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteABlog, getBlogs, resetState } from '../features/blogs/blogSlice'
+import { Link } from 'react-router-dom'
 import CustomModal from '../components/CustomModal'
+import { deleteABlog, getBlogs, resetState } from '../features/blogs/blogSlice'
 
 const columns = [
     {
@@ -82,7 +82,7 @@ const Bloglist = () => {
         <div>
             <h3 className='mb-4 title'>Blogs List</h3>
             <div>
-                <Table columns={columns} dataSource={data1} />
+                <TableEl columns={columns} dataSource={data1} />
             </div>
             <CustomModal
                 hideModal={hideModal}

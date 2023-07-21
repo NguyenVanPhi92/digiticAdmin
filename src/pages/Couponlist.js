@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { Table } from 'antd'
-import { BiEdit } from 'react-icons/bi'
-import { AiFillDelete } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteACoupon, getAllCoupon } from '../features/coupon/couponSlice'
-import CustomModal from '../components/CustomModal'
 import Loading from 'components/Loading'
+import TableEl from 'components/Table'
+import React, { useEffect, useState } from 'react'
+import { AiFillDelete } from 'react-icons/ai'
+import { BiEdit } from 'react-icons/bi'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import CustomModal from '../components/CustomModal'
+import { deleteACoupon, getAllCoupon } from '../features/coupon/couponSlice'
 
 const columns = [
     {
@@ -89,7 +89,7 @@ const Couponlist = () => {
     return (
         <div>
             <h3 className='mb-4 title'>Coupons</h3>
-            <div>{isLoading ? <Loading /> : <Table columns={columns} dataSource={data1} />}</div>
+            <div>{isLoading ? <Loading /> : <TableEl columns={columns} dataSource={data1} />}</div>
 
             <CustomModal
                 hideModal={hideModal}
