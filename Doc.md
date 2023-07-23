@@ -1,5 +1,11 @@
 -   Node 16.16.0 npm 9.8.0
+
+*   Protected: bảo vệ các route
+*   Các chức năng chức hoạt động tốt thêm ảnh ở client chưa được, khi add thêm sp thì chưa redirec sang trang list
+*   video 15 Brand Sever - 8:27
+
     Tech
+
 -   ReactJs
 -   react-qill
 -   react-icon
@@ -12,7 +18,6 @@
 -   Formik
 -   Yup
 
-*   video 15 Brand Sever - 8:27
 *   23 Page
 
 -   Login

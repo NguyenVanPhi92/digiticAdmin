@@ -35,12 +35,12 @@ const Addblogcat = () => {
         }
         if (isSuccess && updatedBlogCategory) {
             toast.success('Blog Category Updated Successfullly!')
-            navigate('/admin/blog-category-list')
+            return navigate('/blog-category-list')
         }
         if (isError) {
             toast.error('Something Went Wrong!')
         }
-    }, [isSuccess, isError, isLoading])
+    }, [isSuccess, isError, isLoading, navigate, createBlogCategory, updatedBlogCategory])
 
     const formik = useFormik({
         enableReinitialize: true,
@@ -56,6 +56,8 @@ const Addblogcat = () => {
                 dispatch(resetState())
             } else {
                 dispatch(createNewblogCat(values))
+                toast.success('Blog Category Updated Successfullly!')
+                navigate('/blog-category-list')
                 formik.resetForm()
                 setTimeout(() => {
                     dispatch(resetState())

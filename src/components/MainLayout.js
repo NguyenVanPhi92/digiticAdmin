@@ -212,6 +212,9 @@ const MainLayout = () => {
                                         className='dropdown-item py-1 mb-1'
                                         style={{ height: 'auto', lineHeight: '20px' }}
                                         to='/'
+                                        // onClick={async () => {
+                                        //     await axios.get(`${base_url}user/logout`)
+                                        // }}
                                     >
                                         Signout
                                     </Link>

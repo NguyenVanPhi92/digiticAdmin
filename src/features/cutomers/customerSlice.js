@@ -43,4 +43,5 @@ export const customerSlice = createSlice({
     }
 })
 
+// export const { logout } = customerSlice.actions // dung cho reducers
 export default customerSlice.reducer

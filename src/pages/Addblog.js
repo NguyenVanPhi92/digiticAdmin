@@ -21,6 +21,8 @@ const Addblog = () => {
     const bCatState = useSelector((state) => state.bCategory.bCategories)
     const blogState = useSelector((state) => state.blogs)
 
+    console.log('log id blog ', getBlogId)
+
     const {
         isSuccess,
         isError,
@@ -149,7 +151,13 @@ const Addblog = () => {
                     </div>
 
                     <div className='bg-white border-1 p-5 text-center mt-3'>
-                        <Dropzone onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}>
+                        <Dropzone
+                            onDrop={(acceptedFiles) => {
+                                // console.log('file ', acceptedFiles)
+
+                                dispatch(uploadImg(acceptedFiles))
+                            }}
+                        >
                             {({ getRootProps, getInputProps }) => (
                                 <section>
                                     <div {...getRootProps()}>

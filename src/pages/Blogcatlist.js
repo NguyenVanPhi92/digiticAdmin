@@ -31,8 +31,8 @@ const Blogcatlist = () => {
     const [blogCatId, setblogCatId] = useState('')
 
     useEffect(() => {
-        dispatch(resetState())
         dispatch(getCategories())
+        dispatch(resetState())
     }, [])
 
     // handle

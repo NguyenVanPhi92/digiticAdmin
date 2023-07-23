@@ -1,4 +1,6 @@
 import MainLayout from 'components/MainLayout'
+import ProtectedLogin from 'guards/ProtectedLogin'
+import ProtectedRoute from 'guards/ProtectedRoute'
 import AddCoupon from 'pages/AddCoupon'
 import Addblog from 'pages/Addblog'
 import Addblogcat from 'pages/Addblogcat'
@@ -16,50 +18,245 @@ import Customers from 'pages/Customers'
 import Dashboard from 'pages/Dashboard'
 import Enquiries from 'pages/Enquiries'
 import Forgotpassword from 'pages/Forgotpassword'
-import Login from 'pages/Login'
 import Orders from 'pages/Orders'
 import Productlist from 'pages/Productlist'
 import Resetpassword from 'pages/Resetpassword'
 import ViewEnq from 'pages/ViewEnq'
 import ViewOrder from 'pages/ViewOrder'
+import { useSelector } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
 
 function App() {
+    const auth = useSelector((state) => state.auth.user._id)
+
     return (
         <Router>
             <Routes>
-                <Route path='/' element={<Login />} />
+                <Route path='/login' element={<ProtectedLogin auth={auth} />} />
                 <Route path='/reset-password' element={<Resetpassword />} />
                 <Route path='/forgot-password' element={<Forgotpassword />} />
-                <Route path='/admin' element={<MainLayout />}>
-                    <Route index element={<Dashboard />} />
-                    <Route path='enquiries' element={<Enquiries />} />
-                    <Route path='enquiries/:id' element={<ViewEnq />} />
-                    <Route path='blog-list' element={<Bloglist />} />
-                    <Route path='blog' element={<Addblog />} />
-                    <Route path='blog/:id' element={<Addblog />} />
-                    <Route path='coupon-list' element={<Couponlist />} />
-                    <Route path='coupon' element={<AddCoupon />} />
-                    <Route path='coupon/:id' element={<AddCoupon />} />
-                    <Route path='blog-category-list' element={<Blogcatlist />} />
-                    <Route path='blog-category' element={<Addblogcat />} />
-                    <Route path='blog-category/:id' element={<Addblogcat />} />
-                    <Route path='orders' element={<Orders />} />
-                    <Route path='order/:id' element={<ViewOrder />} />
-                    <Route path='customers' element={<Customers />} />
-                    <Route path='list-color' element={<Colorlist />} />
-                    <Route path='color' element={<Addcolor />} />
-                    <Route path='color/:id' element={<Addcolor />} />
-                    <Route path='list-category' element={<Categorylist />} />
-                    <Route path='category' element={<Addcat />} />
-                    <Route path='category/:id' element={<Addcat />} />
-                    <Route path='list-brand' element={<Brandlist />} />
-                    <Route path='brand' element={<Addbrand />} />
-                    <Route path='brand/:id' element={<Addbrand />} />
-                    <Route path='list-product' element={<Productlist />} />
-                    <Route path='product' element={<Addproduct />} />
+
+                {/* Trang cha path bắt đầu là /admin */}
+                <Route
+                    path='/admin'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <MainLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    {/* Các trang con sẽ có path là /admin/.... */}
+                    <Route
+                        index
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='enquiries'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Enquiries />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='enquiries/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <ViewEnq />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog-list'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Bloglist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addblog />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addblog />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='coupon-list'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Couponlist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='coupon'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <AddCoupon />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='coupon/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <AddCoupon />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog-category-list'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Blogcatlist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog-category'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addblogcat />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='blog-category/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addblogcat />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='orders'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Orders />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='order/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <ViewOrder />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='customers'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Customers />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='list-color'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Colorlist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='color'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addcolor />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='color/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addcolor />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='list-category'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Categorylist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='category'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addcat />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='category/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addcat />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='list-brand'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Brandlist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='brand'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addbrand />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='brand/:id'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addbrand />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='list-product'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Productlist />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='product'
+                        element={
+                            <ProtectedRoute auth={auth}>
+                                <Addproduct />
+                            </ProtectedRoute>
+                        }
+                    />
                 </Route>
+                <Route path='*' element={<h3>Error...</h3>} />
             </Routes>
         </Router>
     )
