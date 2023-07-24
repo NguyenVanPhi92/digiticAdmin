@@ -2,7 +2,7 @@
 
 *   Protected: bảo vệ các route
 *   Các chức năng chức hoạt động tốt thêm ảnh ở client chưa được, khi add thêm sp thì chưa redirec sang trang list
-*   video 15 Brand Sever - 8:27
+*   video 15 Delete Blog Sever - 30:36
 
     Tech
 
@@ -59,3 +59,6 @@ get all color
 get one color
 edit color
 delete color
+
+APP WEB:
+route, CRUD, fetching data, refresh data, phan quyen, protected route, optimal, performence

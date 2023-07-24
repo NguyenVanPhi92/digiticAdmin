@@ -15,8 +15,6 @@ const Login = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate('/admin')
-        } else {
-            navigate('')
         }
     }, [user, isError, isSuccess, isLoading])
 

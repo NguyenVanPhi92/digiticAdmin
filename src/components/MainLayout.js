@@ -1,5 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout, Menu, theme } from 'antd'
+import axios from 'axios'
 import React, { useState } from 'react'
 import {
     AiOutlineBgColors,
@@ -16,6 +17,7 @@ import { SiBrandfolder } from 'react-icons/si'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { base_url } from 'utils/baseUrl'
 const { Header, Sider, Content } = Layout
 const MainLayout = () => {
     const [collapsed, setCollapsed] = useState(false)
@@ -211,10 +213,12 @@ const MainLayout = () => {
                                     <Link
                                         className='dropdown-item py-1 mb-1'
                                         style={{ height: 'auto', lineHeight: '20px' }}
-                                        to='/'
-                                        // onClick={async () => {
-                                        //     await axios.get(`${base_url}user/logout`)
-                                        // }}
+                                        to='/login'
+                                        onClick={async () => {
+                                            await axios.get(`${base_url}user/logout`)
+
+                                            localStorage.removeItem('user')
+                                        }}
                                     >
                                         Signout
                                     </Link>

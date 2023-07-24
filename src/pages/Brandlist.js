@@ -32,9 +32,10 @@ const Brandlist = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(resetState())
+        console.log('heelo ')
+        // dispatch(resetState())
         dispatch(getBrands())
-    }, [])
+    }, [dispatch])
 
     // handle
     const showModal = (e) => {
