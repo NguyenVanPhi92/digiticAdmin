@@ -25,5 +25,9 @@ export const store = configureStore({
         enquiry: enquiryReducer,
         upload: uploadReducer,
         coupon: couponReducer
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false
+        })
 })

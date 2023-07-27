@@ -2,7 +2,7 @@
 
 *   Protected: bảo vệ các route
 *   Các chức năng chức hoạt động tốt thêm ảnh ở client chưa được, khi add thêm sp thì chưa redirec sang trang list
-*   video 15 Delete Blog Sever - 30:36
+*   video 16 Delete Blog Sever - 00
 
     Tech
 
