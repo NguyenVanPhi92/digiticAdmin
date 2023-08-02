@@ -74,110 +74,6 @@ function App() {
                     }
                 />
                 <Route
-                    path='enquiries'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Enquiries />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='enquiries/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <ViewEnq />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog-list'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Bloglist />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addblog />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addblog />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='coupon-list'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Couponlist />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='coupon'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <AddCoupon />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='coupon/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <AddCoupon />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog-category-list'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Blogcatlist />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog-category'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addblogcat />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='blog-category/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addblogcat />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='orders'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Orders />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='order/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <ViewOrder />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
                     path='customers'
                     element={
                         <ProtectedRoute auth={auth}>
@@ -186,50 +82,18 @@ function App() {
                     }
                 />
                 <Route
-                    path='list-color'
+                    path='product'
                     element={
                         <ProtectedRoute auth={auth}>
-                            <Colorlist />
+                            <Addproduct />
                         </ProtectedRoute>
                     }
                 />
                 <Route
-                    path='color'
+                    path='list-product'
                     element={
                         <ProtectedRoute auth={auth}>
-                            <Addcolor />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='color/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addcolor />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='list-category'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Categorylist />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='category'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addcat />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path='category/:id'
-                    element={
-                        <ProtectedRoute auth={auth}>
-                            <Addcat />
+                            <Productlist />
                         </ProtectedRoute>
                     }
                 />
@@ -258,18 +122,156 @@ function App() {
                     }
                 />
                 <Route
-                    path='list-product'
+                    path='list-category'
                     element={
                         <ProtectedRoute auth={auth}>
-                            <Productlist />
+                            <Categorylist />
                         </ProtectedRoute>
                     }
                 />
                 <Route
-                    path='product'
+                    path='category'
                     element={
                         <ProtectedRoute auth={auth}>
-                            <Addproduct />
+                            <Addcat />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='category/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addcat />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='list-color'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Colorlist />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='color'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addcolor />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='color/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addcolor />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='coupon-list'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Couponlist />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='coupon'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <AddCoupon />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='coupon/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <AddCoupon />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='orders'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Orders />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='order/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <ViewOrder />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='blog-list'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Bloglist />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='blog'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addblog />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='blog/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addblog />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path='blog-category-list'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Blogcatlist />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='blog-category'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addblogcat />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='blog-category/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Addblogcat />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path='enquiries'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <Enquiries />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path='enquiries/:id'
+                    element={
+                        <ProtectedRoute auth={auth}>
+                            <ViewEnq />
                         </ProtectedRoute>
                     }
                 />
